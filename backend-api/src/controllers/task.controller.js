@@ -1,4 +1,5 @@
 const service = require('../services/task.service');
+const aiService = require('../services/ai.service');
 
 function sendServiceError(res, err) {
   if (err instanceof service.ValidationError) {
@@ -41,8 +42,31 @@ function updateTaskStatus(req, res) {
   }
 }
 
+async function analyseTask(req, res) {
+  const task = service.getTask(req.params.id);
+
+  if (!task) {
+    return res.status(404).json({ error: `Task with id "${req.params.id}" not found.` });
+  }
+
+  try {
+    const result = await aiService.analyseTask({
+      title: task.title,
+      description: task.description,
+    });
+    return res.json(result);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(502).json({
+      error: 'AI analysis is temporarily unavailable. Please try again.',
+      details: err.message,
+    });
+  }
+}
+
 module.exports = {
   listTasks,
   getTask,
   updateTaskStatus,
+  analyseTask,
 };

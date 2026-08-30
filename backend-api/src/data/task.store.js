@@ -23,6 +23,16 @@ const tasks = [
     priority: 'MEDIUM',
     status: 'COMPLETED',
   }),
+  createTask({
+    title: 'Request payslip from customer',
+    description: 'Customer has not uploaded the missing payslip document for review.',
+    priority: 'LOW',
+  }),
+  createTask({
+    title: 'Investigate billing invoice',
+    description: 'Review the invoice for a duplicate charge and issue the refund. FORCE_AI_FAILURE',
+    priority: 'MEDIUM',
+  }),
 ];
 
 function getAll() {
