@@ -1,37 +1,40 @@
-const { createTask } = require('../models/task.model');
+const { createTask } = require("../models/task.model");
 
 const tasks = [
   createTask({
-    title: 'Write project proposal',
-    description: 'Draft the initial proposal and share it with the team for review.',
-    priority: 'HIGH',
-    status: 'IN_PROGRESS',
+    title: "Write project proposal",
+    description:
+      "Draft the initial proposal and share it with the team for review.",
+    priority: "HIGH",
+    status: "IN_PROGRESS",
   }),
   createTask({
-    title: 'Design the task review flow',
-    description: 'Sketch the approve / reject workflow and data model.',
-    priority: 'MEDIUM',
+    title: "Design the task review flow",
+    description: "Sketch the approve / reject workflow and data model.",
+    priority: "MEDIUM",
   }),
   createTask({
-    title: 'Set up CI pipeline',
-    description: 'Add lint, test, and build steps to the repository.',
-    priority: 'LOW',
+    title: "Set up CI pipeline",
+    description: "Add lint, test, and build steps to the repository.",
+    priority: "LOW",
   }),
   createTask({
-    title: 'Onboard new developers',
-    description: 'Document setup steps and review guidelines for the team.',
-    priority: 'MEDIUM',
-    status: 'COMPLETED',
+    title: "Onboard new developers",
+    description: "Document setup steps and review guidelines for the team.",
+    priority: "MEDIUM",
+    status: "COMPLETED",
   }),
   createTask({
-    title: 'Request payslip from customer',
-    description: 'Customer has not uploaded the missing payslip document for review.',
-    priority: 'LOW',
+    title: "Request payslip from customer",
+    description:
+      "Customer has not uploaded the missing payslip document for review.",
+    priority: "LOW",
   }),
   createTask({
-    title: 'Investigate billing invoice',
-    description: 'Review the invoice for a duplicate charge and issue the refund. FORCE_AI_FAILURE',
-    priority: 'MEDIUM',
+    title: "Investigate billing invoice",
+    description:
+      "Review the invoice for a duplicate charge and issue the refund. FORCE_AI_FAILURE",
+    priority: "MEDIUM",
   }),
 ];
 
@@ -52,8 +55,14 @@ function update(id, updates) {
   return task;
 }
 
+function _reset(seedTasks) {
+  tasks.length = 0;
+  tasks.push(...seedTasks);
+}
+
 module.exports = {
   getAll,
   getById,
   update,
+  _reset,
 };
