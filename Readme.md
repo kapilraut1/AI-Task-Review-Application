@@ -7,7 +7,7 @@ A small full-stack application that allows users to view incoming tasks, update 
 **Backend**
 
 ```bash
-cd backend
+cd backend-api
 npm install
 cp .env.example .env   # optional — only needed for a real AI_API_KEY or different PORT
 npm run dev
@@ -18,7 +18,7 @@ Runs on http://localhost:3000. No API key needed — falls back to a mock AI ser
 **Frontend**
 
 ```bash
-cd frontend
+cd frontend-ui
 npm install
 cp .env.example .env   # optional — only needed if backend isn't on localhost:3000
 npm run dev
