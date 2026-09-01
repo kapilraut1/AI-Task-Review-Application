@@ -29,7 +29,7 @@ Open the URL Vite prints (usually http://localhost:5173).
 **Tests**
 
 ```bash
-cd backend
+cd backend-api
 npm test
 ```
 
