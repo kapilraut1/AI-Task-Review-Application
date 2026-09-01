@@ -31,9 +31,9 @@ const tasks = [
     priority: "LOW",
   }),
   createTask({
-    title: "Investigate billing invoice",
+    title: "[Demo] Simulated AI failure",
     description:
-      "Review the invoice for a duplicate charge and issue the refund. FORCE_AI_FAILURE",
+      "This task intentionally triggers the AI provider failure path (FORCE_AI_FAILURE) to demonstrate error handling in the Analyse with AI feature.",
     priority: "MEDIUM",
   }),
 ];
